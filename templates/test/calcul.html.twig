@@ -4,6 +4,7 @@
 <h2>Le resultat du calcul</h2>
 
 <p>{{ nb1 }} + {{ nb2 }} = {{ nb1 + nb2 }} </p>
-{{resultat|default(0)}}
+
+<p>{{nb1 ~ " + " ~ nb2 ~ " = " ~ (nb1 + nb2) }}</p>
 
  {% endblock %}

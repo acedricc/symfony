@@ -12,13 +12,12 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/projetsf5/src/Controller/TestController.php'|file_link(0) }}">src/Controller/TestController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/projetsf5/templates/test/index.html.twig'|file_link(0) }}">templates/test/index.html.twig</a></code></li>
-    </ul>
+    <p>Valeurs du tableau associatif</p>
+    <table border="1">
+    <th>Nom</th>
+        <td>{{ var.nom }}</td>
+        <td>{{ var.prenom }}</td>
+   
 </div>
 {% endblock %}
 

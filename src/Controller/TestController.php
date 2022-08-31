@@ -57,6 +57,7 @@ class TestController extends AbstractController
                 avec les variables.)
          */
     }
+ 
 
     /**
      * @Route("/test/calcul/{a}/{b}", requirements={"a"="\d*[.]?\d+", "b"="[0-9]+"}, name="app_test_calcul_dynamique")
@@ -73,6 +74,7 @@ class TestController extends AbstractController
      * par n'importe quelle chaine de caracteres.
      * Pour pouvoir utiliser ces valeurs passées dans l'URL, il faut déclarer des arguments dans 
      * la fonction calculDynamique qui auront le meme nom
+     * Si le parametre de la route n'est pas obligatoire,on ajoute un ? apres le nom du parametre
      */
     public function calculDynamique($a,$b)
     {
@@ -81,4 +83,44 @@ class TestController extends AbstractController
             "nb2" => $b
         ]);
     }
+    /**
+     *@Route("/test/tableau", name="app_test_tableau") 
+     */
+    public function tableau()
+    {
+        $array = [5, 10 , "bonjour","je m'appelle",true ];
+        return $this->render("test/tableau.html.twig", [ "tableau" => $array]);
+    }
+    /**
+     *@Route("/test/assoc", name="app_test_assoc") 
+     */
+    public function tableauAssociatif()
+    {
+        $p = ["nom" => "Cerien" , "prenom" =>"Jean"];
+        return $this->render("test/assoc.html.twig", [ "var" => $p]);
+
+    }
+    /** 
+     *   *@Route("/test/objet") 
+    */
+  
+  
+   public function objet()
+   {
+      $objet = new \stdClass;
+      $objet-> nom = "Odin";
+      $objet-> prenom = "Anne";
+      return $this->render("test/assoc.html.twig",["var" => $objet]);
+
+   }
+
+   /**
+    * *@Route("/test/condition/{age}") 
+    */
+    public function condition ($age)
+    {
+        return $this->render("test/condition.html.twig", ["age" => $age]);
+    }
+
+
 }
